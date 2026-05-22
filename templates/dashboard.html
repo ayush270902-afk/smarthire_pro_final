@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SmartHire Pro Dashboard</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+
+        body{
+            background:#f4f7fc;
+            font-family:Segoe UI;
+        }
+
+        .sidebar{
+            height:100vh;
+            background:#111827;
+            color:white;
+            position:fixed;
+            width:240px;
+            padding-top:20px;
+        }
+
+        .sidebar h2{
+            text-align:center;
+            margin-bottom:40px;
+            font-weight:bold;
+        }
+
+        .sidebar a{
+            display:block;
+            color:#d1d5db;
+            padding:15px 25px;
+            text-decoration:none;
+            transition:0.3s;
+        }
+
+        .sidebar a:hover{
+            background:#2563eb;
+            color:white;
+        }
+
+        .main{
+            margin-left:240px;
+            padding:30px;
+        }
+
+        .topbar{
+            background:white;
+            padding:15px 25px;
+            border-radius:12px;
+            box-shadow:0 2px 10px rgba(0,0,0,0.08);
+            margin-bottom:30px;
+        }
+
+        .card-box{
+            border:none;
+            border-radius:18px;
+            color:white;
+            padding:25px;
+            box-shadow:0 6px 20px rgba(0,0,0,0.1);
+            transition:0.3s;
+        }
+
+        .card-box:hover{
+            transform:translateY(-5px);
+        }
+
+        .bg1{
+            background:linear-gradient(135deg,#2563eb,#1e40af);
+        }
+
+        .bg2{
+            background:linear-gradient(135deg,#10b981,#047857);
+        }
+
+        .bg3{
+            background:linear-gradient(135deg,#f59e0b,#d97706);
+        }
+
+        .number{
+            font-size:38px;
+            font-weight:bold;
+        }
+
+        .label{
+            font-size:18px;
+            opacity:0.9;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+
+        <h2>SmartHire Pro</h2>
+
+        <a href="/"><i class="fa fa-home"></i> Dashboard</a>
+        <a href="/jobs"><i class="fa fa-briefcase"></i> Jobs</a>
+        <a href="/candidates"><i class="fa fa-users"></i> Candidates</a>
+        <a href="/pipeline"><i class="fa fa-chart-line"></i> Pipeline</a>
+        <a href="/schedule"><i class="fa fa-calendar"></i> Interviews</a>
+        <a href="/offers"><i class="fa fa-file"></i> Offers</a>
+        <a href="/analytics"><i class="fa fa-chart-pie"></i> Analytics</a>
+        <a href="/logout"><i class="fa fa-sign-out-alt"></i> Logout</a>
+
+    </div>
+
+    <!-- Main Content -->
+    <div class="main">
+
+        <!-- Topbar -->
+        <div class="topbar d-flex justify-content-between">
+
+            <div>
+                <h3>Dashboard</h3>
+                <small class="text-muted">
+                    Welcome HR Manager
+                </small>
+            </div>
+
+            <div>
+                <span class="badge bg-primary p-2">
+                    Role: {{role}}
+                </span>
+            </div>
+
+        </div>
+
+        <!-- Cards -->
+        <div class="row g-4">
+
+            <div class="col-md-4">
+
+                <div class="card-box bg1">
+
+                    <div class="number">
+                        {{jobs}}
+                    </div>
+
+                    <div class="label">
+                        Total Jobs
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-4">
+
+                <div class="card-box bg2">
+
+                    <div class="number">
+                        {{cand}}
+                    </div>
+
+                    <div class="label">
+                        Candidates
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-4">
+
+                <div class="card-box bg3">
+
+                    <div class="number">
+                        {{offers}}
+                    </div>
+
+                    <div class="label">
+                        Offers Sent
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Extra Section -->
+        <div class="mt-5">
+
+            <div class="card border-0 shadow-sm rounded-4">
+
+                <div class="card-body">
+
+                    <h4>SmartHire Analytics</h4>
+
+                    <p class="text-muted">
+                        Track recruitment performance, hiring pipeline,
+                        candidate engagement and offer management efficiently.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

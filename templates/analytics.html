@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Analytics</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+
+        body{
+            background:#f5f7fb;
+            font-family:Segoe UI;
+        }
+
+        .main{
+            max-width:1100px;
+            margin:auto;
+            margin-top:40px;
+        }
+
+        .card{
+            border:none;
+            border-radius:20px;
+        }
+
+        .stat-card{
+            padding:30px;
+            color:white;
+            border-radius:18px;
+        }
+
+        .bg1{
+            background:#2563eb;
+        }
+
+        .bg2{
+            background:#16a34a;
+        }
+
+        .bg3{
+            background:#dc2626;
+        }
+
+        h1{
+            font-size:40px;
+            font-weight:bold;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="main">
+
+    <div class="d-flex justify-content-between mb-4">
+
+        <h2>Recruitment Analytics</h2>
+
+        <a href="/" class="btn btn-dark">
+            Dashboard
+        </a>
+
+    </div>
+
+    <!-- Cards -->
+
+    <div class="row g-4 mb-5">
+
+        <div class="col-md-4">
+
+            <div class="stat-card bg1">
+
+                <h5>Total Candidates</h5>
+
+                <h1>{{total}}</h1>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-4">
+
+            <div class="stat-card bg2">
+
+                <h5>Selected</h5>
+
+                <h1>{{selected}}</h1>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-4">
+
+            <div class="stat-card bg3">
+
+                <h5>Rejected</h5>
+
+                <h1>{{rejected}}</h1>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Chart -->
+
+    <div class="card shadow-sm p-4">
+
+        <h4 class="mb-4">
+            Hiring Performance
+        </h4>
+
+        <canvas id="myChart"></canvas>
+
+    </div>
+
+</div>
+
+<script>
+
+const ctx = document.getElementById('myChart');
+
+new Chart(ctx, {
+
+    type: 'bar',
+
+    data: {
+
+        labels: ['Total', 'Selected', 'Rejected'],
+
+        datasets: [{
+
+            label: 'Candidates',
+
+            data: [
+                {{total}},
+                {{selected}},
+                {{rejected}}
+            ],
+
+            borderWidth: 2
+
+        }]
+
+    },
+
+    options: {
+
+        responsive: true,
+
+        plugins: {
+
+            legend: {
+                display: true
+            }
+
+        }
+
+    }
+
+});
+
+</script>
+
+</body>
+</html>
